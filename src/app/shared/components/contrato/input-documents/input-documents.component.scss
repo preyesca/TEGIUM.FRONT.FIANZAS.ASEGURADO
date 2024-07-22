@@ -1,0 +1,23 @@
+.input-document-title {
+    margin-bottom: 12px;
+    color: #3470AF;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        min-width: 30px;
+    }
+
+    h2 {
+        font-family: 'Source Sans 3';
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 23px;
+        letter-spacing: 0em;
+    }
+}

@@ -1,0 +1,35 @@
+@import "src/assets/styles/variables.scss";
+
+.dashboard-container{
+    padding-top: 80px;
+    height: 100%;
+    background-color: #F1F6FE;
+}
+
+.dashboard-content{
+    padding: 40px 50px 0px 50px;
+
+    @media all and (max-width: 600px){
+        padding: 40px 25px 0px 25px;
+    }
+}
+
+.contratos-title{
+    color: $base-color;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+
+    mat-icon{
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        min-width: 30px;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,102 @@
+<div class="btn-send-container">
+    <button [disabled]="(this.lstFiles.length === 0 && !this.slideCheck) || (this.frmComentario.invalid && this.slideCheck)"
+        (click)="click_enviar_documentos()" class="btn-send-documents" mat-raised-button color="primary" type="button">
+        <mat-icon><span class="material-symbols-outlined">
+                outgoing_mail
+            </span></mat-icon>Enviar documentos</button>
+</div>
+<div *ngIf="lstFIC.length > 0">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Documentación para descargar
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let item of lstFIC" class="accordion-panel-content">
+                <div class="accordion-panel-content-item">
+                    <mat-icon><span class="material-symbols-outlined">download</span></mat-icon>
+                    <a mat-button (click)="download(item)" target="_blank">{{item.name}}</a>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<div>
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Documentos en proceso
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]="frmComentario" class="upload-document-container">
+                <div *ngFor="let item of configuracion.documento">
+                    <div class="input-document-container" *ngIf="item.categoria === 3">
+                        {{item.nombre}}
+                        <div class="row">
+                            <div class="custom-input-file col-md-12"
+                                (click)="fileInputMultiple.value">
+                                <input #fileInputMultiple type="file" id="controlUpload" class="input-file"
+                                    [accept]="extencionesPermitidas"
+                                    (change)="handleFileInputChange(fileInputMultiple.files, item.documento)" multiple>
+                                <img src="assets/imgs/folder-open-1.svg" width="100px">
+                                <h5>Selecciona tus documentos</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="file_upload_list" *ngFor="let archivo of lstFiles">
+                                    <div class="file_item" *ngIf="archivo.documento === item.documento">
+                                        <div class="file_progress">
+                                            <div class="file_info">
+                                                <div class="format">
+                                                    <p> {{getmimeType(archivo.file!.name)}}</p>
+                                                </div>
+                                                <div class="file_progress">
+                                                    <div class="file_info">
+                                                        <div class="file_name">
+                                                            {{archivo.file!.name}}
+                                                        </div>
+                                                        <div class="file_size_wrap">
+                                                            <div class="file_size">
+                                                                <mat-icon (click)="clik_mostrar(archivo);"> <span
+                                                                        class="material-symbols-outlined">
+                                                                        visibility
+                                                                    </span>
+                                                                </mat-icon>
+                                                            </div>
+                                                            <div class="file_close">
+                                                                <mat-icon class="ms-2 pointer" (click)="clik_remove(archivo);"><span
+                                                                    class="material-symbols-outlined">
+                                                                    delete
+                                                                </span>
+                                                            </mat-icon>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="inner_progress" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-panel-toggle">
+                            <mat-slide-toggle color="primary" [checked]="checks[item.nombre]" (change)="SlideToggle($event, item.nombre)">¿Archivo
+                                incorrecto?</mat-slide-toggle>
+                        </div>
+                      </div>
+                      <br />
+                    </div>
+                <mat-form-field appearance="outline" [ngClass]="!isValidFiles() ? 'd-none' : 'd-block'">
+                    <mat-label>Deja un comentario</mat-label>
+                    <textarea matInput formControlName="comentarios"></textarea>
+                </mat-form-field>
+            </form>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

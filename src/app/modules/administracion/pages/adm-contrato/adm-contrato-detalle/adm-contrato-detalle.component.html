@@ -1,0 +1,47 @@
+<div class="contratos-container">
+  <div class="contratos-contrato">
+    <div class="contratos-title">
+      <mat-icon><span class="material-symbols-outlined">
+          dashboard
+        </span></mat-icon>
+      <h2>{{titular.nombre}}</h2>
+    </div>
+    <div class="contratos-badge">
+      <span>Número de cliente : <strong>{{titular.numeroCliente}}</strong></span>
+    </div>
+  </div>
+
+  <div class="card-detail-contrato-container">
+    <ng-container>
+      <app-detail-card [icon]="'description'" [title]="'Expediente'" [subtitle]="contrato.aseguradora"></app-detail-card>
+      <app-detail-card [icon]="'extension'" [title]="'Unidad'" [subtitle]="contrato.unidad"></app-detail-card>
+      <app-detail-card [icon]="'bolt'" [title]="'Riesgo'" [subtitle]="contrato.riesgo"></app-detail-card>
+      <app-detail-card [icon]="'scatter_plot'" [title]="'Tipo de movimiento'"
+        [subtitle]="contrato.tipoMovimiento"></app-detail-card>
+    </ng-container>
+  </div>
+
+  <div class="switch-container">
+
+    <app-nuevo-contrato *ngIf="(contrato.estatus === 1 || contrato.estatus === 2) && contrato.actividad === 3"
+      [contrato]="contrato" [listNecesaryDocumentation]="documentos"
+      [configuracion]="configuracion"></app-nuevo-contrato>
+
+    <app-reproceso *ngIf="contrato.estatus === 4 && contrato.actividad === 3" [contrato]="contrato"
+      [listNecesaryDocumentation]="documentos" [configuracion]="configuracion" [motivos]="motivos"></app-reproceso>
+
+    <app-fic
+      *ngIf="(contrato.estatus === 1 || contrato.estatus === 2 || contrato.estatus === 4) && contrato.actividad === 5"
+      [contrato]="contrato" [configuracion]="configuracion"></app-fic>
+
+    <app-validacion
+      *ngIf="(contrato.actividad != 3 && contrato.actividad != 5 && contrato.actividad != 18 )"></app-validacion>
+
+    <app-recoleccion-fisicos
+      *ngIf="(contrato.estatus === 1 || contrato.estatus === 2 || contrato.estatus === 4) && contrato.actividad === 18"
+      [contrato]="contrato" [listNecesaryDocumentation]="documentos"
+      [configuracion]="configuracion"></app-recoleccion-fisicos>
+
+  </div>
+
+</div>

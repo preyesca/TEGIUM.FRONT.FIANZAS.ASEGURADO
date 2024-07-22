@@ -1,0 +1,74 @@
+<div class="contratos-container">
+  <div class="contratos-header">
+    <div class="contratos-title">
+      <mat-icon><span class="material-symbols-outlined">
+          dashboard
+        </span></mat-icon>
+      <h4>Bienvenido: {{ titular.nombre }}</h4>
+    </div>
+    <div class="contratos-badge">
+      <span>Número de cliente : <strong>{{ titular.numeroCliente }}</strong></span>
+    </div>
+  </div>
+
+  <div class="contratos-message">
+    <mat-icon>
+      <span class="material-symbols-outlined">error</span>
+    </mat-icon>
+    <span><strong>¡Recuerda tener tus documentos solicitados a la mano!, </strong>extensiones permitidas son: PNG, PDF,
+      JPEG, JPG, XML.</span>
+  </div>
+
+  <h3 class="contratos-title-main">
+    <mat-icon>
+      <span class="material-symbols-outlined">quick_reference_all</span>
+    </mat-icon> Mis expedientes
+  </h3>
+
+  <mat-table class="table-configuracion-documental" mat-table [dataSource]="dataSource" matSort matSortDisableClear>
+    <ng-container matColumnDef="folio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Número de folio</mat-header-cell>
+      <mat-cell *matCellDef="let row;">
+        <span class="mobile-label">Número de folio:</span>
+       No. {{ row.folioMultisistema }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="aseguradora">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Aseguradora</mat-header-cell>
+      <mat-cell *matCellDef="let row;">
+        <span class="mobile-label">Aseguradora:</span>
+        {{ row.aseguradora }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="estado">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Estado</mat-header-cell>
+      <mat-cell *matCellDef="let row;">
+        <span class="mobile-label">Estado:</span>
+        {{ row.estado }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="accion">
+      <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+      <mat-cell *matCellDef="let row;">
+        <button class="btn-table" mat-raised-button color="primary" type="button" (click)="goToDetailContract(row)">
+          <mat-icon><span class="material-symbols-outlined">
+              visibility
+            </span></mat-icon>{{ row.accion }}Ver expediente</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; let i = index; columns: displayColumns;"></mat-row>
+
+    <tr class="row-empty" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        {{ "general.table.emptyResults" | translate }}
+      </td>
+    </tr>
+
+  </mat-table>
+  <mat-paginator 
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    [showFirstLastButtons]="showFirstLastButtons">
+  </mat-paginator>
+</div>

@@ -1,0 +1,25 @@
+<mat-table *ngIf="dataSourceNewContracts.data.length > 0" class="table-detalle-contrato" mat-table
+  [dataSource]="dataSourceNewContracts">
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let row;">
+      <span class="mobile-label"> Nombre</span>
+      {{row.nombre}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accion">
+    <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+    <mat-cell *matCellDef="let row;">
+      <div class="button-table-container">
+        <mat-icon (click)="downloadFile(row)"> <span class="material-symbols-outlined">
+            visibility
+          </span></mat-icon>
+        <mat-icon class="ms-2 pointer" (click)="deleteFile(row)"><span class="material-symbols-outlined">
+            delete
+          </span></mat-icon>
+      </div>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; let i = index; columns: displayColumns;"></mat-row>
+</mat-table>

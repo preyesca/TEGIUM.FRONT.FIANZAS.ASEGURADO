@@ -1,0 +1,39 @@
+{
+  "general": {
+    "options": {
+      "actions": "Acciones",
+      "cancel": "Cancelar",
+      "create": "Nuevo",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "new": "Nuevo",
+      "return": "Regresar",
+      "save": "Guardar",
+      "search": "Buscar...",
+      "update": "Actualizar",
+      "upload": "Cargar",
+      "uploading": "Cargando",
+      "view": "Ver"
+    },
+    "table": {
+      "emptyResults": "No hay información para mostrar.",
+      "recordsPerPage": "Registros por página",
+      "firstPage": "Primer página",
+      "lastPage": "Última página",
+      "previousPage": "Anterior",
+      "nextPage": "Siguiente",
+      "pageOf": "de"
+    }
+  },
+  "authenticacion": {
+    "login": {
+      "bienvenido": "Bienvenido",
+      "numeroCliente": "Número cliente",
+      "correoElectronico": "Correo electrónico",
+      "options": {
+        "ingresar": "Iniciar sesión",
+        "olvidarContrasena": "¿Olvidaste tu contraseña?"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.card-detail-contrato {
+    background-color: #F5F5FF;
+    display: flex;
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+    align-items: center;
+    height: 100%;
+}
+
+.car-detail-img-container {
+    height: 45px;
+    width: 45px;
+    background-color: #D7D9FF;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-detail-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-detail-title {
+    font-family: Source Sans 3;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #4E418B;
+}
+
+.card-detail-subtitle {
+    font-family: Source Sans 3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}

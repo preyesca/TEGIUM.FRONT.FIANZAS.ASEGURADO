@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="dashboard-container">
+    <div class="dashboard-content">
+        <router-outlet></router-outlet>
+        <ng-template #content let-modal let-c="close" let-d="dismiss">
+            <div class="modal-body">
+              <div class="contratos-title">
+                <h4 class="modal-title" id="modal-basic-title">
+                    Hola, ¿sigues aquí?
+                </h4>
+              </div>
+              <p>Por tu seguridad, la sesión se cerrará en:</p>
+              <div class="contratos-title">
+                <h4>
+                  {{ countDown }}
+                  {{
+                  countDown == 1
+                  ? 'segundo'
+                  : 'segundos'
+                  }}
+                </h4>
+              </div>
+              <br />
+              <div class="text-center">
+                <button type="button" class="btn mx-2" mat-raised-button (click)="logout()">
+                 Cerrar sesión
+                </button>
+                <button type="button" class="btn-send-documents" mat-raised-button color="primary"
+                  (click)="continuar_session()">
+                 Continuar
+                </button>
+              </div>
+            </div>
+          </ng-template>
+    </div>  
+</div>
+<countdown class="d-none" #cdLogout [config]="configCountDown" (event)="countEvent($event)" />

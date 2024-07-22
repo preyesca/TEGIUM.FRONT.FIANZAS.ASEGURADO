@@ -1,0 +1,39 @@
+{
+  "general": {
+    "options": {
+      "actions": "Actions",
+      "cancel": "Cancel",
+      "create": "Create",
+      "delete": "Delete",
+      "edit": "Edit",
+      "new": "New",
+      "return": "Return",
+      "save": "Save",
+      "search": "Search...",
+      "update": "Update",
+      "upload": "Upload",
+      "uploading": "Uploading",
+      "view": "View"
+    },
+    "table": {
+      "emptyResults": "No results found.",
+      "recordsPerPage": "Records per page",
+      "firstPage": "First page",
+      "lastPage": "Last page",
+      "previousPage": "Previous",
+      "nextPage": "Next",
+      "pageOf": "of"
+    }
+  },
+  "authenticacion": {
+    "login": {
+      "bienvenido": "Welcome",
+      "numeroCliente": "Customer number",
+      "correoElectronico": "Email address",
+      "options": {
+        "ingresar": "Log in",
+        "olvidarContrasena": "Did you forget your password?"
+      }
+    }
+  }
+}

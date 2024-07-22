@@ -1,0 +1,16 @@
+.login-container{
+    text-align: center;
+    max-width: 342px;
+
+    mat-form-field{
+        width: 100%;
+
+        &.input-cliente{
+            margin-top: 32px;
+        }
+    }
+}
+
+.login-title{
+    margin-top: 32px;
+}

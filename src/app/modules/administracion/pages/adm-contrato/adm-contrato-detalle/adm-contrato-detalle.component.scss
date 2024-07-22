@@ -1,0 +1,78 @@
+@import "src/assets/styles/breakpoints.scss";
+@import "src/assets/styles/variables.scss";
+
+.contratos-container {
+    padding: 40px 30px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px #757FEF33;
+    border-radius: 20px;
+}
+
+.contratos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contratos-title {
+    color: $base-color;
+    font-size: 20px;
+    font-weight: 600;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+        display: flex;
+        align-items: center;
+        min-height: 30px;
+        min-width: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+.contratos-badge {
+    background-color: #D6E5FF;
+    padding: 4px 14px 4px 14px;
+    border-radius: 23px;
+    font-size: 14px;
+    color: #002C77;
+
+    strong {
+        margin-left: 10px;
+    }
+}
+
+.card-detail-contrato-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    grid-auto-rows: 1fr;
+}
+
+.switch-container {
+    margin-top: 30px;
+}
+
+
+@include media-down(md) {
+    .card-detail-contrato-container {
+        gap: 20px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+    }
+
+    .revision-container {
+        flex-direction: column;
+    }
+}
+
+@include media-down(sm) {
+    .card-detail-contrato-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

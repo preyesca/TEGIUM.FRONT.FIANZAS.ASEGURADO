@@ -1,0 +1,20 @@
+<div class="allowed-documents-container">
+  <div class="input-document-title-allowed"
+    matTooltip={{listDocumentsAllowed[0]}}
+    matTooltipPosition="left" matTooltipClass="myTooltip">
+    <mat-icon><span class="material-symbols-outlined">
+        error
+      </span></mat-icon>
+    <h2>Documentos permitidos</h2>
+  </div>
+  <span *ngIf="listDocumentsAllowed.length > 0"  class="see-example-container" (click)="openModal()"><mat-icon><span class="material-symbols-outlined">
+        image
+      </span></mat-icon>Ver ejemplos</span>
+  <ul class="allowed-documents-list-container">
+    <ng-container *ngFor="let item of listDocumentsAllowed">
+      <li class="allowed-documents-list-item">
+        {{item}}
+      </li>
+    </ng-container>
+  </ul>
+</div>

@@ -1,0 +1,44 @@
+<div style="max-height: 100vh; overflow: auto">
+    <h2 class="documents-allowed-modal-title">Ejemplos de documentos permitidos</h2>
+    <hr class="documents-allowed-line">
+    <br/>
+    <div class="documents-allowed-body-container">
+        <div class="documents-allowed-message">
+            <mat-icon><span class="material-symbols-outlined">
+                    error
+                </span></mat-icon>
+
+            <span class="documents-allowed-message-title">{{data.description}}</span>
+        </div>
+
+        <div class="document-allowed-swiper-container">
+            <button *ngIf="data.images.length > 1" class="button-class-left" (click)="return()">
+                <mat-icon matPrefix="matPrefix">
+                    <span class="material-symbols-outlined">navigate_before</span>
+                </mat-icon>
+            </button>
+            <swiper-container class="swiper-container" #el #swiper initial-slide="0" pagination="false" [loop]="true">
+                <swiper-slide *ngFor="let img of data.images; let i = index" class="swipper-item"
+                    style="width: 419px !important;">
+                    <span class="mi-slide-pagination"><b>{{ i + 1 }}</b> de <b>{{ data.images.length }}</b></span>
+                    <div class="c-image-swipper">
+                        <img class="swipper-item-img" src="assets/images/procesos/_shared/documentos-ejemplos/{{ img }}"
+                            alt="" />
+                    </div>
+                </swiper-slide>
+            </swiper-container>
+            <button *ngIf="data.images.length > 1" class="button-class-rigth" (click)="next()">
+                <mat-icon matPrefix="matPrefix">
+                    <span class="material-symbols-outlined">navigate_next</span>
+                </mat-icon>
+            </button>
+        </div>
+        <div class="document-allowed-button-container">
+            <button class="btn-table" mat-raised-button color="primary" type="button" (click)="accept()">
+                <mat-icon><span class="material-symbols-outlined">
+                        check
+                    </span></mat-icon>Aceptar</button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="login-container">
+  <h2 class="login-title title-auth">{{ 'authenticacion.login.bienvenido' | translate }}</h2>
+  <form [formGroup]="frmLogin" (ngSubmit)="authentication()">
+    <mat-form-field class="input-cliente" color="primary" appearance="outline">
+      <mat-label>{{ 'authenticacion.login.numeroCliente' | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="numeroCliente"
+        maxlength="15"
+        (keydown)="onKeyDownNumeroCliente($event)"
+        autofocus="true"
+        (paste)="onPasteNumeroCliente($event)"
+      />
+      <mat-icon matPrefix>
+        <span class="material-symbols-outlined">person</span>
+      </mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'authenticacion.login.correoElectronico' | translate }}</mat-label>
+      <input
+        matInput
+        formControlName="correoElectronico"
+        type="email"
+        maxlength="100"
+        autocomplete="off"
+      />
+      <mat-icon matPrefix>
+        <span class="material-symbols-outlined">mail</span>
+      </mat-icon>
+    </mat-form-field>
+    <button
+      class="btn-auth"
+      mat-raised-button
+      color="primary"
+      type="submit"
+    >
+      {{ 'authenticacion.login.options.ingresar' | translate }}
+    </button>
+  </form>
+</div>

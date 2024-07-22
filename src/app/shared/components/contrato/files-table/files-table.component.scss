@@ -1,0 +1,11 @@
+.button-table-container{
+    display: flex;
+    gap: 5px;
+    button{
+        cursor: pointer;
+    }
+    mat-icon{
+        color: #4F71AE;
+        cursor: pointer;
+    }
+}

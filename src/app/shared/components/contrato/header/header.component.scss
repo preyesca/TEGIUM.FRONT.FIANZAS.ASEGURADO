@@ -1,0 +1,74 @@
+@import "src/assets/styles/breakpoints.scss";
+
+mat-toolbar {
+    min-height: 80px;
+    padding: 10px 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0px 4px 10px 0px #002C7726;;
+}
+
+.header-main-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.header-main-container-left{
+    display: flex;
+    align-items: center;
+}
+
+
+.header-main-menu{
+    list-style: none;
+    padding-left: 50px;
+    display: flex;
+}
+
+.header-main-menu-item{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 17px;
+    border-radius: 8px;
+    padding: 7px 15px;
+    background-color: white;
+    transition: all .3s ease;
+}
+
+.header-main-menu-item:hover {
+    cursor: pointer;
+    background-color: #F5F5FF;;
+}
+
+.header-main-container-right{
+    font-family: 14p;
+    display: flex;
+    gap: 5px;
+    border-radius: 8px;
+    padding: 7px 15px;
+    transition: all .3s ease;
+}
+
+.header-main-container-right:hover{
+    cursor: pointer;
+    background-color: #F5F5FF;;
+}
+
+.header-main-logo {
+    max-width: 173px;
+    height: 24px;
+}
+
+@include media-down(sm){
+    .header-main-menu{
+        list-style: none;
+        padding-left: 0px;
+    }
+}

@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/breakpoints.scss";
+@import "./assets/styles/general.scss";
+@import "./assets/styles/material.scss";
+@import "./assets/styles/modules/auth.scss";
+
+//Toastr
+@import 'ngx-toastr/toastr';
+
+@import "bootstrap/scss/bootstrap";
+

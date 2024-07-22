@@ -1,0 +1,35 @@
+<mat-dialog-content class="mat-typography" align="center">
+  <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+    <mat-icon style="font-size: 40px; width: 40px; height: 40px;">lock</mat-icon>
+  </div>
+  <p>Le hemos enviado un código de autenticación al correo {{data.correo}}</p>
+  <br>
+  <div class="d-flex justify-content-center align-items-center">
+    <code-input
+      style="width: 50%;"
+      [isCodeHidden]="false"
+      (codeChanged)="onCodeChanged($event)"
+      [codeLength]="3"
+    ></code-input>
+  </div>
+  <br>
+  <br>
+  <p>
+    <span>No he recibido un código de autenticación. </span><a
+      (click)="reenviarCodigo()"
+      style="color: #007bff; text-decoration: underline;cursor: pointer;"
+    >Reenviar código.</a>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <div class="row">
+    <div [class]="'col-md-12 text-center'" mat-dialog-actions>
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button
+        #btnRef="matButton"
+        mat-button
+        (click)="confirmarCodigo()"
+      >Aceptar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

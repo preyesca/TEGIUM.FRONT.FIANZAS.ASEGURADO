@@ -1,0 +1,28 @@
+$breakpoints:(
+    xs: 0px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+@mixin media-down($breakpoint){
+    @if map-has-key($breakpoints, $breakpoint){
+        @media screen and (max-width: map-get($breakpoints,$breakpoint)) {
+            @content;
+        }
+    }@else{
+        @warn "El valor "#{$breakpoint}"no esta declarado en los breakpoinst"
+    }
+};
+
+@mixin media-up($breakpoint){
+    @if map-has-key($breakpoints, $breakpoint){
+        @media screen and (min-width: map-get($breakpoints,$breakpoint)) {
+            @content;
+        }
+    }@else{
+        @warn "El valor "#{$breakpoint}"no esta declarado en los breakpoinst"
+    }
+};
